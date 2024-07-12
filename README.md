@@ -1,2 +1,2 @@
-# brunetti_web
-Pagina web para la barbería Brunetti Men's Salon
+# barber_web
+Page for a barber shop
