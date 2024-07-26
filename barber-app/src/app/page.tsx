@@ -1,8 +1,26 @@
+'use client';
+
 import Image from "next/image";
 import Head from "next/head";
-import { Button } from '@chakra-ui/react';
+import { Button, Stack, useDisclosure } from '@chakra-ui/react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react'
+import Mobile from "@/components/Mobile";
+import Desktop from "@/components/Desktop";
+
 
 export default function Home() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+
+
   return (
     <>
       <Head>
@@ -16,23 +34,13 @@ export default function Home() {
         <link rel="canonical" href="https://tu-sitio-web.com" />
       </Head>
 
-      <div style={{ position: 'relative', textAlign: 'center' }}>
-        <Image 
-          src="/images/barber_shop-desktop.png"
-          alt="barber"
-          width={1792}
-          height={1024}
-          className="hidden md:block"
-          priority
-        />
-        <div className="block md:hidden">
-          <Image 
-            src="/images/barber_shop-mobile.png"
-            alt="barber"
-            width={720}
-            height={1024}
-            priority
-          />
+      <div style={{ position: 'relative', textAlign: 'center' }} >
+        <div className="hidden md:block" >
+          <Desktop/>
+        </div>
+        <div className="block md:hidden"> 
+          <Mobile/>
+
         </div>
 
         <div style={{ 
