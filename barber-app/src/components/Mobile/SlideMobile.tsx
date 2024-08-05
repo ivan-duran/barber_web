@@ -1,82 +1,74 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Box } from "@chakra-ui/react";
+import { Box, IconButton } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 
-
-
-
-
 const images = [
-    "/images/barber01.png",
-    "/images/barber02.png",
-    "/images/barber03.png",
-  ];
+  "/images/barber01.png",
+  "/images/barber02.png",
+  "/images/barber03.png",
+];
 
-
-  const SlideMobile = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        nextArrow: <div className="custom-next-arrow">Next</div>,
-        prevArrow: <div className="custom-prev-arrow">Prev</div>,
-    };
-
-    return (
-        <Slider {...settings}>
-            {images.map((image, index) => (
-            <Box key={index} padding="2">
-                <Image
-                    src={image}
-                    width={2145}
-                    height={1864}
-                    alt={`barber image ${index}`}
-                />
-            </Box>
-            ))}
-        </Slider>
-    );
+const CustomNextArrow = ({ onClick }) => {
+  return (
+    <IconButton
+      aria-label="next"
+      icon={<ChevronRightIcon />}
+      onClick={onClick}
+      position="absolute"
+      top="50%"
+      right="10px"
+      transform="translateY(-50%)"
+      zIndex="10"
+      background="transparent"
+      _hover={{ background: "transparent" }}
+    />
+  );
 };
 
-const SimpleSlider = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
-      return (
-        <div className="slider-container">
-          <Slider {...settings}>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div>
-            <div>
-              <h3>5</h3>
-            </div>
-            <div>
-              <h3>6</h3>
-            </div>
-          </Slider>
-        </div>
-      );
-}
+const CustomPrevArrow = ({ onClick }) => {
+  return (
+    <IconButton
+      aria-label="prev"
+      icon={<ChevronLeftIcon />}
+      onClick={onClick}
+      position="absolute"
+      top="50%"
+      left="10px"
+      transform="translateY(-50%)"
+      zIndex="10"
+      background="transparent"
+      _hover={{ background: "transparent" }}
+    />
+  );
+};
 
-  
+const SlideMobile = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
+  };
 
-export default SimpleSlider;
+  return (
+    <Slider {...settings}>
+      {images.map((image, index) => (
+        <Box key={index} padding="2">
+          <Image
+            src={image}
+            width={2145}
+            height={1864}
+            alt={`barber image ${index}`}
+          />
+        </Box>
+      ))}
+    </Slider>
+  );
+};
+
+export default SlideMobile;
