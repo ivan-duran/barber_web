@@ -3,17 +3,11 @@
 import Image from "next/image";
 import Head from "next/head";
 import { Button, Stack, useDisclosure } from '@chakra-ui/react';
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/react'
-import Mobile from "@/components/Mobile";
-import Desktop from "@/components/Desktop";
+import Mobile from "@/components/Mobile/Mobile";
+import Desktop from "@/components/Desktop/Desktop";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 
 export default function Home() {
@@ -43,22 +37,6 @@ export default function Home() {
 
         </div>
 
-        <div style={{ 
-          position: 'absolute', 
-          top: '50%', 
-          left: '50%', 
-          transform: 'translate(-50%, -50%)' 
-        }}>
-          <Button 
-            variant={"outline"}
-            size={"lg"}
-            borderColor="#761B19" 
-            color="#761B19" 
-            _hover={{ bg: "#761B19", color: "white" }}
-          >
-            Reservar Cita
-          </Button>
-        </div>
       </div>
     </>
   );
