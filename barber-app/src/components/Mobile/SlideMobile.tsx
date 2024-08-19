@@ -10,7 +10,7 @@ const images = [
   "/images/barber03.png",
 ];
 
-const CustomNextArrow = ({ onClick }) => {
+const CustomNextArrow = ({ onClick }: { onClick: () => void }) => {
   return (
     <IconButton
       aria-label="next"
@@ -27,7 +27,7 @@ const CustomNextArrow = ({ onClick }) => {
   );
 };
 
-const CustomPrevArrow = ({ onClick }) => {
+const CustomPrevArrow = ({ onClick }: { onClick: () => void }) => {
   return (
     <IconButton
       aria-label="prev"
@@ -51,8 +51,12 @@ const SlideMobile = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow onClick={function (): void {
+      throw new Error("Function not implemented.");
+    } } />,
+    prevArrow: <CustomPrevArrow onClick={function (): void {
+      throw new Error("Function not implemented.");
+    } } />,
   };
 
   return (

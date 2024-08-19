@@ -43,7 +43,6 @@ const Mobile = () => {
             alt="barber"
             width="100%"
             height="auto"
-            layout="responsive"
             style={{ objectFit: 'cover' }}
           />      
           <BookButton />

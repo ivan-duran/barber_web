@@ -18,7 +18,6 @@ const Desktop = () => {
             alt="barber"
             width={1792}
             height={1024}
-            layout="responsive"
             style={{ objectFit: 'cover' }}
           />
           <BookButton />
